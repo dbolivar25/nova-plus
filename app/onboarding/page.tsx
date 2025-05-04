@@ -70,9 +70,7 @@ const OnboardingSurvey = () => {
       !surveyData.doingWell ||
       !surveyData.strugglingWith
     ) {
-      toast({
-        variant: "destructive",
-        title: "Incomplete Survey",
+      toast("Incomplete Survey", {
         description:
           "Please fill in at least the core vision, routine, and reflection fields.",
       });
@@ -84,8 +82,7 @@ const OnboardingSurvey = () => {
       localStorage.setItem("novaSurveyData", JSON.stringify(surveyData));
       localStorage.setItem("novaSurveyCompleted", "true");
 
-      toast({
-        title: "Survey Submitted",
+      toast("Survey Submitted", {
         description: "Thank you for sharing! Let's get started.",
       });
 
@@ -93,9 +90,7 @@ const OnboardingSurvey = () => {
       router.push("/instructions");
     } catch (error) {
       console.error("Error saving survey data:", error);
-      toast({
-        variant: "destructive",
-        title: "Submission Error",
+      toast("Submission Error", {
         description:
           "There was an error saving your responses. Please try again.",
       });
